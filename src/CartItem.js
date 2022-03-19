@@ -32,6 +32,8 @@ class CartItem extends React.Component{
             return{
                 qty:prevState.qty+1
             }
+        },()=>{
+            console.log('this.state',this.state);
         });
     }
 
@@ -49,6 +51,8 @@ class CartItem extends React.Component{
         if (quantity>0){
             this.setState({
                 qty:quantity- 1,
+            },()=>{
+                console.log('This is decrease',this.state)
             })
             console.log(quantity);
         }
@@ -60,9 +64,11 @@ class CartItem extends React.Component{
     //deleteItem
     deleteItem=()=>{
 
-        //1st method
+        // 1st method
         // this.setState({
         //     qty:0,
+        // },()=>{
+        //     console.log('Item removed from cart ',this.state)
         // });
 
         //2nd method
@@ -71,7 +77,7 @@ class CartItem extends React.Component{
             return{
                 qty:0
             }
-        });
+        },()=>{console.log('Item removed from cart ',this.state)});
 
     }
 
